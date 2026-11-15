@@ -90,6 +90,7 @@ Dobrar o número de tarefas praticamente dobra o tempo: o crescimento é linear,
 | `cronograma.py` | funções puras: validação, ordenação topológica, tabulação e caminho crítico |
 | `dados.py` | cronograma simulado do MVP e gerador de cronogramas grandes para medir tempo |
 | `testes.py` | testes automatizados com `assert` |
+| `prompts.md` | uso de IA no trabalho |
 
 As funções de cálculo não fazem `print` nem `input`: recebem dados por parâmetro e devolvem o resultado. Erros de dados são sinalizados com `ValueError` e tratados na interface.
 
@@ -105,3 +106,7 @@ python testes.py    # testes automatizados
 ## Origem dos dados
 
 Todos os dados são **simulados** pela equipe. As tarefas do MVP representam as etapas típicas de uma escola para participar de um evento externo, e os responsáveis são **setores** da escola, não pessoas. Os cronogramas grandes da medição de tempo são gerados aleatoriamente com semente fixa. Nenhum dado pessoal real é usado.
+
+## Uso de IA
+
+Usamos IA como apoio. O resumo está em [`prompts.md`](prompts.md).
