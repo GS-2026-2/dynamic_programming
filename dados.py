@@ -17,6 +17,26 @@ As dependencias formam um grafo dirigido: existe uma aresta A -> B
 quando B depende de A.
 '''
 
+import random
+
+
+def gera_cronograma_aleatorio(quantidade, semente=42):
+    '''Cronograma grande, sem ciclos, so para medir tempo.
+
+    A tarefa i depende de ate 3 tarefas sorteadas entre as 50 anteriores,
+    entao nunca ha ciclo. Semente fixa: o resultado eh sempre o mesmo.
+    '''
+    sorteio = random.Random(semente)
+    tarefas = {}
+    for i in range(quantidade):
+        candidatas = list(range(max(0, i - 50), i))
+        escolhidas = sorteio.sample(candidatas, min(len(candidatas), sorteio.randint(0, 3)))
+        tarefas[f'T{i}'] = {'descricao': f'tarefa {i}', 'duracao': sorteio.randint(1, 5),
+                            'responsavel': 'simulado',
+                            'depende_de': [f'T{j}' for j in escolhidas]}
+    return tarefas
+
+
 TAREFAS_EVENTO = {
     'receber_convite': {
         'descricao': 'Registrar o convite da Diretoria de Ensino',
